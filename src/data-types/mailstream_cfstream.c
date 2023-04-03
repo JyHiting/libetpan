@@ -125,8 +125,7 @@ struct mailstream_cfstream_data {
 /* data */
 
 
-CFReadStreamRef _readStream;
-CFWriteStreamRef _writeStream;
+
 
 #if HAVE_CFNETWORK
 static int low_open(mailstream_low * s);
