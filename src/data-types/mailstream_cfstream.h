@@ -80,8 +80,8 @@ extern "C" {
   mailstream * mailstream_cfstream_open_voip(const char * hostname, int16_t port, int voip_enabled);
   mailstream * mailstream_cfstream_open_voip_timeout(const char * hostname, int16_t port, int voip_enabled,
 		time_t timeout);
-mailstream * mailstream_cfstream_open_voip_timeout1(const char * hostname, int16_t port, int voip_enabled,
-  time_t timeout);
+//  mailstream * mailstream_cfstream_open_voip_timeout1(const char * hostname, int16_t port, int voip_enabled,
+//  time_t timeout);
 //  int setGlobalNetProxyConfigCallback();
 
   mailstream_low * mailstream_low_cfstream_open(const char * hostname, int16_t port);
