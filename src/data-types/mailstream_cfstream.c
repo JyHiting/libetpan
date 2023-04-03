@@ -34,6 +34,8 @@
 #if HAVE_CFNETWORK
 #include <CoreFoundation/CoreFoundation.h>
 #include <TargetConditionals.h>
+typedef void(*SetGlobalNetProxyConfigCallback)(CFReadStreamRef readStream,CFWriteStreamRef writeStream);
+SetGlobalNetProxyConfigCallback globalNetProxyConfigCallback;
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 #include <CFNetwork/CFNetwork.h>
 #include <Security/Security.h>
@@ -51,10 +53,6 @@
 #else
 #define CFSTREAM_ENABLED_DEFAULT 0
 #endif
-
-
-typedef void(*SetGlobalNetProxyConfigCallback)(void *,void *);
-SetGlobalNetProxyConfigCallback globalNetProxyConfigCallback;
 
 
 LIBETPAN_EXPORT
