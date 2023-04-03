@@ -124,6 +124,10 @@ struct mailstream_cfstream_data {
 
 /* data */
 
+
+CFReadStreamRef _readStream;
+CFWriteStreamRef _writeStream;
+
 #if HAVE_CFNETWORK
 static int low_open(mailstream_low * s);
 static void cfstream_data_close(struct mailstream_cfstream_data * socket_data);
@@ -520,7 +524,8 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
   CFRelease(proxySettings);
 #endif
   
-  
+  _readStream = readStream
+  _writeStream = writeStream;
 
   cfstream_data = cfstream_data_new(readStream, writeStream);
   s = mailstream_low_new(cfstream_data, mailstream_cfstream_driver);
