@@ -2486,6 +2486,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = libetpan;
 				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -2505,7 +2506,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = libetpan;
 				SDKROOT = macosx;
-				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -2638,6 +2639,7 @@
 				PRODUCT_NAME = etpan;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -2654,6 +2656,7 @@
 				PRODUCT_NAME = etpan;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
 				ZERO_LINK = NO;
 			};
 			name = Release;
