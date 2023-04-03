@@ -519,7 +519,7 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
     
 //  setGlobalNetProxyConfigCallback();
   
-  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
+//  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
 
   
   cfstream_data = cfstream_data_new(readStream, writeStream);
