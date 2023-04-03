@@ -34,8 +34,6 @@
 #define MAILSTREAM_CFSTREAM_H
 
 
-//extern void cocoa_test_func;
-
 #include <libetpan/libetpan-config.h>
 #include <libetpan/mailstream.h>
 

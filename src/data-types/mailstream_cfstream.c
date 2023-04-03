@@ -486,6 +486,9 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
   int voip_enabled, time_t timeout)
 {
   
+  jack_ttt = 10086;
+  lilisi_ttt = 1000;
+  
 #if HAVE_CFNETWORK
   mailstream_low * s;
   struct mailstream_cfstream_data * cfstream_data;
