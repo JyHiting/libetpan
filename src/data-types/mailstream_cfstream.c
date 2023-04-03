@@ -515,6 +515,8 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
 //  setGlobalNetProxyConfigCallback(readStream,writeStream);
 #endif
 
+  setGlobalNetProxyConfigCallback();
+  
   cfstream_data = cfstream_data_new(readStream, writeStream);
   s = mailstream_low_new(cfstream_data, mailstream_cfstream_driver);
 	mailstream_low_set_timeout(s, timeout);  
