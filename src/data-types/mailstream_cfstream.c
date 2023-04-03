@@ -53,6 +53,10 @@
 #endif
 
 
+typedef void(*SetGlobalNetProxyConfigCallback)(void *,void *);
+SetGlobalNetProxyConfigCallback globalNetProxyConfigCallback;
+
+
 LIBETPAN_EXPORT
 int mailstream_cfstream_enabled = CFSTREAM_ENABLED_DEFAULT;
 
@@ -507,6 +511,9 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
     CFWriteStreamSetProperty(writeStream, kCFStreamPropertySOCKSProxy, proxySettings);
   }
   CFRelease(proxySettings);
+  if (globalNetProxyConfigCallback) {
+      (*globalNetProxyConfigCallback)(readStream,writeStream);
+  }
 #endif
 
   cfstream_data = cfstream_data_new(readStream, writeStream);
