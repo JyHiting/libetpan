@@ -42,11 +42,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-SetGlobalNetProxyConfigCallback  globalNetProxyConfigCallback;
-void setGNetProxyConfigCallback(SetGlobalNetProxyConfigCallback)cb
-{
-  globalNetProxyConfigCallback = cb;
-}
+
 /* *********************************************************************** */
 /* mail session */
 
