@@ -217,19 +217,20 @@ mailstream * mailstream_cfstream_open_voip(const char * hostname, int16_t port, 
 mailstream * mailstream_cfstream_open_voip_timeout(const char * hostname, int16_t port, int voip_enabled,
   time_t timeout)
 {
-#if HAVE_CFNETWORK
-  mailstream_low * low;
-  mailstream * s;
-  
-  low = mailstream_low_cfstream_open_voip_timeout(hostname, port, voip_enabled, timeout);
-  if (low == NULL) {
-    return NULL;
-  }
-  s = mailstream_new(low, 8192);
-  return s;
-#else
-  return NULL;
-#endif
+//#if HAVE_CFNETWORK
+//  mailstream_low * low;
+//  mailstream * s;
+//
+//  low = mailstream_low_cfstream_open_voip_timeout(hostname, port, voip_enabled, timeout);
+//  if (low == NULL) {
+//    return NULL;
+//  }
+//  s = mailstream_new(low, 8192);
+//  return s;
+//#else
+//  return NULL;
+//#endif
+  return mailstream_cfstream_open_voip_timeout1(hostname,port,voip_enabled,timeout);
 }
 mailstream * mailstream_cfstream_open_voip_timeout1(const char * hostname, int16_t port, int voip_enabled,
                                                     time_t timeout){
