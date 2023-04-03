@@ -526,7 +526,7 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
   s = mailstream_low_new(cfstream_data, mailstream_cfstream_driver);
 	mailstream_low_set_timeout(s, timeout);  
 
-  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
+//  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
   
   /* setup streams */
   cfstream_data->streamContext.info = s;
