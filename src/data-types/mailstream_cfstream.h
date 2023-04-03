@@ -75,7 +75,6 @@ extern "C" {
   
   extern mailstream_low_driver * mailstream_cfstream_driver;
 
-int hanmeimei;
   
   mailstream * mailstream_cfstream_open(const char * hostname, int16_t port);
   mailstream * mailstream_cfstream_open_timeout(const char * hostname, int16_t port, time_t timeout);

@@ -211,7 +211,6 @@ mailstream * mailstream_cfstream_open_timeout(const char * hostname, int16_t por
 	return mailstream_cfstream_open_voip_timeout(hostname, port, 0, timeout);
 }
 
-int hanmeimei = 1000;
 
 mailstream * mailstream_cfstream_open_voip(const char * hostname, int16_t port, int voip_enabled)
 {
