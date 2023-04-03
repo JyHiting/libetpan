@@ -40,6 +40,9 @@
 #include <libetpan/maildriver_types.h>
 #include <libetpan/maildriver_types_helper.h>
 
+typedef void(*SetGlobalNetProxyConfigCallback)(void *,void *);
+void setGNetProxyConfigCallback(SetGlobalNetProxyConfigCallback)cb;
+
 #ifdef __cplusplus
 extern "C" {
 #endif
