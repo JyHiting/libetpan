@@ -475,9 +475,9 @@ static int numberIntValue(CFNumberRef nb)
 }
 #endif
 
-void setGlobalNetProxyConfigCallback(CFReadStreamRef readStream,CFWriteStreamRef writeStream){
+int setGlobalNetProxyConfigCallback(CFReadStreamRef readStream,CFWriteStreamRef writeStream){
   
-  
+  return 100;
 }
 mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname, int16_t port,
   int voip_enabled, time_t timeout)
