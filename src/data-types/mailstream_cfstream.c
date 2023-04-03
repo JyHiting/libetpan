@@ -32,6 +32,10 @@
 #include "mailstream_cfstream.h"
 
 
+static int jack_ttt = 10086;
+int lilisi_ttt = 1000;
+
+
 #if HAVE_CFNETWORK
 #include <CoreFoundation/CoreFoundation.h>
 #include <TargetConditionals.h>
@@ -217,23 +221,6 @@ mailstream * mailstream_cfstream_open_voip(const char * hostname, int16_t port, 
 mailstream * mailstream_cfstream_open_voip_timeout(const char * hostname, int16_t port, int voip_enabled,
   time_t timeout)
 {
-//#if HAVE_CFNETWORK
-//  mailstream_low * low;
-//  mailstream * s;
-//
-//  low = mailstream_low_cfstream_open_voip_timeout(hostname, port, voip_enabled, timeout);
-//  if (low == NULL) {
-//    return NULL;
-//  }
-//  s = mailstream_new(low, 8192);
-//  return s;
-//#else
-//  return NULL;
-//#endif
-  return mailstream_cfstream_open_voip_timeout1(hostname,port,voip_enabled,timeout);
-}
-mailstream * mailstream_cfstream_open_voip_timeout1(const char * hostname, int16_t port, int voip_enabled,
-                                                    time_t timeout){
 #if HAVE_CFNETWORK
   mailstream_low * low;
   mailstream * s;
@@ -248,6 +235,7 @@ mailstream * mailstream_cfstream_open_voip_timeout1(const char * hostname, int16
   return NULL;
 #endif
 }
+
 
 #if HAVE_CFNETWORK
 static void cancelPerform(void *info)
@@ -492,10 +480,7 @@ static int numberIntValue(CFNumberRef nb)
 }
 #endif
 
-int setGlobalNetProxyConfigCallback(){
-  
-  return 100;
-}
+
 
 mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname, int16_t port,
   int voip_enabled, time_t timeout)
@@ -530,15 +515,10 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
     CFWriteStreamSetProperty(writeStream, kCFStreamPropertySOCKSProxy, proxySettings);
   }
   CFRelease(proxySettings);
-//  setGlobalNetProxyConfigCallback(readStream,writeStream);
 #endif
   
-    
-//  setGlobalNetProxyConfigCallback();
   
-//  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
 
-  
   cfstream_data = cfstream_data_new(readStream, writeStream);
   s = mailstream_low_new(cfstream_data, mailstream_cfstream_driver);
 	mailstream_low_set_timeout(s, timeout);  
