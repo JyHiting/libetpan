@@ -52,6 +52,7 @@
 #define CFSTREAM_ENABLED_DEFAULT 0
 #endif
 
+
 LIBETPAN_EXPORT
 int mailstream_cfstream_enabled = CFSTREAM_ENABLED_DEFAULT;
 
@@ -476,7 +477,7 @@ static int numberIntValue(CFNumberRef nb)
 mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname, int16_t port,
   int voip_enabled, time_t timeout)
 {
-  
+  cocoa_test_func();
   printf("hahahha-----mailstream_low_cfstream_open_voip_timeout");
 #if HAVE_CFNETWORK
   mailstream_low * s;
