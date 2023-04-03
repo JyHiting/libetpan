@@ -479,6 +479,7 @@ int setGlobalNetProxyConfigCallback(){
   
   return 100;
 }
+
 mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname, int16_t port,
   int voip_enabled, time_t timeout)
 {
@@ -516,7 +517,7 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
 #endif
   
     
-  setGlobalNetProxyConfigCallback();
+//  setGlobalNetProxyConfigCallback();
   
   fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
 
