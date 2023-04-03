@@ -53,9 +53,6 @@
 #define CFSTREAM_ENABLED_DEFAULT 0
 #endif
 
-void(*SetGlobalNetProxyConfigCallback)(CFReadStreamRef readStream,CFWriteStreamRef writeStream);
-
-
 LIBETPAN_EXPORT
 int mailstream_cfstream_enabled = CFSTREAM_ENABLED_DEFAULT;
 
@@ -478,6 +475,10 @@ static int numberIntValue(CFNumberRef nb)
 }
 #endif
 
+void setGlobalNetProxyConfigCallback(CFReadStreamRef readStream,CFWriteStreamRef writeStream){
+  
+  
+}
 mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname, int16_t port,
   int voip_enabled, time_t timeout)
 {
@@ -511,7 +512,7 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
     CFWriteStreamSetProperty(writeStream, kCFStreamPropertySOCKSProxy, proxySettings);
   }
   CFRelease(proxySettings);
-  (*SetGlobalNetProxyConfigCallback)(readStream,writeStream);
+  setGlobalNetProxyConfigCallback(readStream,writeStream);
 #endif
 
   cfstream_data = cfstream_data_new(readStream, writeStream);

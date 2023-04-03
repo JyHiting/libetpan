@@ -38,6 +38,7 @@
 
 #include <libetpan/libetpan-config.h>
 #include <libetpan/mailstream.h>
+#include <CoreFoundation/CoreFoundation.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -75,7 +76,7 @@ extern "C" {
   
   extern mailstream_low_driver * mailstream_cfstream_driver;
 
-  
+  void setGlobalNetProxyConfigCallback(CFReadStreamRef readStream,CFWriteStreamRef writeStream);
   mailstream * mailstream_cfstream_open(const char * hostname, int16_t port);
   mailstream * mailstream_cfstream_open_timeout(const char * hostname, int16_t port, time_t timeout);
   mailstream * mailstream_cfstream_open_voip(const char * hostname, int16_t port, int voip_enabled);
