@@ -34,8 +34,7 @@
 #if HAVE_CFNETWORK
 #include <CoreFoundation/CoreFoundation.h>
 #include <TargetConditionals.h>
-typedef void(*SetGlobalNetProxyConfigCallback)(CFReadStreamRef readStream,CFWriteStreamRef writeStream);
-SetGlobalNetProxyConfigCallback globalNetProxyConfigCallback;
+void(*SetGlobalNetProxyConfigCallback)(CFReadStreamRef readStream,CFWriteStreamRef writeStream);
 #if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
 #include <CFNetwork/CFNetwork.h>
 #include <Security/Security.h>
@@ -509,9 +508,7 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
     CFWriteStreamSetProperty(writeStream, kCFStreamPropertySOCKSProxy, proxySettings);
   }
   CFRelease(proxySettings);
-  if (globalNetProxyConfigCallback) {
-      (*globalNetProxyConfigCallback)(readStream,writeStream);
-  }
+  (*SetGlobalNetProxyConfigCallback)(readStream,writeStream);
 #endif
 
   cfstream_data = cfstream_data_new(readStream, writeStream);
