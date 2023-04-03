@@ -43,9 +43,6 @@
 #endif
 #endif
 
-#import <Foundation/Foundation.h>
-
-
 #ifndef WIN32
 #include <pthread.h>
 #endif
@@ -518,22 +515,17 @@ mailstream_low * mailstream_low_cfstream_open_voip_timeout(const char * hostname
 //  setGlobalNetProxyConfigCallback(readStream,writeStream);
 #endif
   
-  
-  NSString *tmp = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES)lastObject]
-  NSString *tmp2 = [NSString stringWithFormat:@"%@/123",tmp]
-  if (![[NSFileManager defaultManager] fileExistsAtPath:tmp2]) {
-      //缓存目录不存在
-      //创建
-      [[NSFileManager defaultManager] createDirectoryAtPath:tmp2 withIntermediateDirectories:true attributes:@{} error:nil];
-  }
-  
+    
   setGlobalNetProxyConfigCallback();
+  
+  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
+
   
   cfstream_data = cfstream_data_new(readStream, writeStream);
   s = mailstream_low_new(cfstream_data, mailstream_cfstream_driver);
 	mailstream_low_set_timeout(s, timeout);  
 
-  //fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
+  fprintf(stderr, "open %s %i -> %p\n", hostname, port, s);
   
   /* setup streams */
   cfstream_data->streamContext.info = s;
